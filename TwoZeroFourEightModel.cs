@@ -11,7 +11,89 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        protected int score = 0;
 
+        /// <summary>
+        /// get score from twozerofoureightmodel class
+        /// </summary>
+        /// <returns>score</returns>
+        public int GetScore()
+        {
+            return score;
+        }
+        /// <summary>
+        /// check board
+        /// </summary>
+        /// <param name="board">board</param>
+        /// <returns>treu if board full</returns>
+        public bool isBoardFull(int[,] board)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if(board[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// check status of board
+        /// </summary>
+        /// <param name="board">board</param>
+        /// <returns>true if over</returns>
+        public bool isOver(int[,] board)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i - 1 >= 0)
+                    {
+                        if (board[i - 1,j] == board[i,j])
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (i + 1 < 4)
+                    {
+                        if (board[i + 1,j] == board[i,j])
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (j - 1 >= 0)
+                    {
+                        if (board[i,j - 1] == board[i,j])
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (j + 1 < 4)
+                    {
+                        if (board[i,j + 1] == board[i,j])
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (board[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+        
         public TwoZeroFourEightModel() : this(4)
         {
             // default board size is 4 
@@ -39,7 +121,7 @@ namespace twozerofoureight
 
         private int[,] Random(int[,] input)
         {
-            while (true)
+            while (!isBoardFull(board))
             {
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);
@@ -82,6 +164,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score = score + buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }
@@ -134,6 +217,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score = score + buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }
@@ -188,6 +272,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score = score + buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }
@@ -239,6 +324,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score = score + buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }

@@ -75,6 +75,11 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
+            scorelb.Text = Convert.ToString(((TwoZeroFourEightModel) model).GetScore());
+            if (((TwoZeroFourEightModel)model).isOver(board))
+            {
+                scorelb.Text = "GAME OVER";
+            }
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -97,5 +102,45 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
+
+        private void KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case 'W':
+                case 'w':
+                    controller.ActionPerformed(TwoZeroFourEightController.UP);
+                    break;
+                case 'S':
+                case 's':
+                    controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                    break;
+                case 'A':
+                case 'a':
+                    controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                    break;
+                case 'D':
+                case 'd':
+                    controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                    break;
+            }
+
+            /*if (e.KeyChar == Keys.W || e.KeyChar == Keys.Up)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+            }
+            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            }
+            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+            }
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+            }*/
+        }
     }
 }
