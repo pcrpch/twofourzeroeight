@@ -109,38 +109,29 @@ namespace twozerofoureight
             {
                 case 'W':
                 case 'w':
+                case 'ไ':
+                case '"':
                     controller.ActionPerformed(TwoZeroFourEightController.UP);
                     break;
                 case 'S':
                 case 's':
+                case 'ห':
+                case 'ฆ':
                     controller.ActionPerformed(TwoZeroFourEightController.DOWN);
                     break;
                 case 'A':
                 case 'a':
+                case 'ฟ':
+                case 'ฤ':
                     controller.ActionPerformed(TwoZeroFourEightController.LEFT);
                     break;
                 case 'D':
                 case 'd':
+                case 'ก':
+                case 'ฏ':
                     controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
                     break;
             }
-
-            /*if (e.KeyChar == Keys.W || e.KeyChar == Keys.Up)
-            {
-                controller.ActionPerformed(TwoZeroFourEightController.UP);
-            }
-            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-            {
-                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
-            }
-            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
-            {
-                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
-            }
-            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-            {
-                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
-            }*/
         }
     }
 }
