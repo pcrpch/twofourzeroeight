@@ -24,9 +24,8 @@ namespace twozerofoureight
         /// <summary>
         /// check board
         /// </summary>
-        /// <param name="board">board</param>
         /// <returns>treu if board full</returns>
-        public bool isBoardFull(int[,] board)
+        public bool isBoardFull()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -44,9 +43,8 @@ namespace twozerofoureight
         /// <summary>
         /// check status of board
         /// </summary>
-        /// <param name="board">board</param>
         /// <returns>true if over</returns>
-        public bool isOver(int[,] board)
+        public bool isOver()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -121,7 +119,7 @@ namespace twozerofoureight
 
         private int[,] Random(int[,] input)
         {
-            while (!isBoardFull(board))
+            while (!isBoardFull())
             {
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);

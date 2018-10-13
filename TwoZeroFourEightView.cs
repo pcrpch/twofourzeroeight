@@ -76,9 +76,9 @@ namespace twozerofoureight
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
             scorelb.Text = Convert.ToString(((TwoZeroFourEightModel) model).GetScore());
-            if (((TwoZeroFourEightModel)model).isOver(board))
+            if (((TwoZeroFourEightModel)model).isOver())
             {
-                scorelb.Text = "GAME OVER";
+                overlb.Text = "GAME OVER";
             }
         }
 
