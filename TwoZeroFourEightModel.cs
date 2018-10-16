@@ -91,6 +91,18 @@ namespace twozerofoureight
 
             return true;
         }
+
+        public string GameOver()
+        {
+            if (isOver())
+            {
+                return "GAME OVER";
+            }
+            else
+            {
+                return "";
+            }
+        }
         
         public TwoZeroFourEightModel() : this(4)
         {
