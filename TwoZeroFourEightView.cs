@@ -130,5 +130,32 @@ namespace twozerofoureight
                     break;
             }
         }
+
+        private void arrow_keys(object seder, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Left)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                btnLeft.Focus();
+
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                btnRight.Focus();
+
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                btnUp.Focus();
+
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                btnDown.Focus();
+            }
+        }
     }
 }
